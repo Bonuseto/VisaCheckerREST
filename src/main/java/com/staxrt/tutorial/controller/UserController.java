@@ -23,6 +23,7 @@ package com.staxrt.tutorial.controller;
 import com.staxrt.tutorial.exception.ResourceNotFoundException;
 import com.staxrt.tutorial.model.User;
 import com.staxrt.tutorial.repository.UserRepository;
+import com.staxrt.tutorial.selenium.Selenium;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,6 @@ import java.util.Map;
 /**
  * The type User controller.
  *
- * @author Givantha Kalansuriya
  */
 @RestController
 @RequestMapping("/api/v1")
@@ -80,6 +80,8 @@ public class UserController {
    */
   @PostMapping("/users")
   public User createUser(@Valid @RequestBody User user) {
+   //System.out.println(user.get());
+    user.setStatus(Selenium.check(user.getApplicationNum(), user.getXxField(), user.getApplicationType(), user.getYear()));
     return userRepository.save(user);
   }
 
@@ -100,10 +102,11 @@ public class UserController {
         userRepository
             .findById(userId)
             .orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
-
-    user.setEmail(userDetails.getEmail());
-    user.setLastName(userDetails.getLastName());
-    user.setFirstName(userDetails.getFirstName());
+    user.setStatus(userDetails.getStatus());
+    user.setYear(userDetails.getYear());
+    user.setApplicationType(userDetails.getApplicationType());
+    user.setXxField(userDetails.getXxField());
+    user.setApplicationNum(userDetails.getApplicationNum());
     user.setUpdatedAt(new Date());
     final User updatedUser = userRepository.save(user);
     return ResponseEntity.ok(updatedUser);

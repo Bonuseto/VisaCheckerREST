@@ -44,16 +44,18 @@ public class ApplicationTests {
 	@Test
 	public void testGetUserById() {
 		User user = restTemplate.getForObject(getRootUrl() + "/users/1", User.class);
-		System.out.println(user.getFirstName());
+		System.out.println(user.getApplicationNum());
 		Assert.assertNotNull(user);
 	}
 
 	@Test
 	public void testCreateUser() {
 		User user = new User();
-		user.setEmail("admin@gmail.com");
-		user.setFirstName("admin");
-		user.setLastName("admin");
+		user.setApplicationType("admin");
+		user.setApplicationNum("admin");
+		user.setXxField("admin");
+		user.setYear("admin");
+		user.setStatus("admin");
 		user.setCreatedBy("admin");
 		user.setUpdatedBy("admin");
 
@@ -66,8 +68,8 @@ public class ApplicationTests {
 	public void testUpdatePost() {
 		int id = 1;
 		User user = restTemplate.getForObject(getRootUrl() + "/users/" + id, User.class);
-		user.setFirstName("admin1");
-		user.setLastName("admin2");
+		user.setApplicationNum("admin1");
+		user.setXxField("admin2");
 
 		restTemplate.put(getRootUrl() + "/users/" + id, user);
 

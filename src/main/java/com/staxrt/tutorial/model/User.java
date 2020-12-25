@@ -35,7 +35,6 @@ import java.util.Date;
 /**
  * The type User.
  *
- * @author Givantha Kalansuriya
  */
 @Entity
 @Table(name = "users")
@@ -46,14 +45,22 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
+    @Column(name = "application_number", nullable = false)
+    private String applicationNum;
 
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
+    @Column(name = "xx_field", nullable = false)
+    private String xxField;
 
-    @Column(name = "email_address", nullable = false)
-    private String email;
+    @Column(name = "application_type", nullable = false)
+    private String applicationType;
+    
+    @Column(name = "year", nullable = false)
+    private String year;
+    
+    @Column(name = "status", nullable = false)
+    private String status;
+    
+    
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -92,60 +99,83 @@ public class User {
     }
 
   /**
-   * Gets first name.
+   * Gets Application Number.
    *
-   * @return the first name
+   * @return the Application Number
    */
-  public String getFirstName() {
-        return firstName;
+  public String getApplicationNum() {
+        return applicationNum;
     }
 
   /**
-   * Sets first name.
+   * Sets Application Number.
    *
-   * @param firstName the first name
+   * @param applicationNum the Application Number
    */
-  public void setFirstName(String firstName) {
-        this.firstName = firstName;
+  public void setApplicationNum(String applicationNum) {
+        this.applicationNum = applicationNum;
     }
 
   /**
-   * Gets last name.
+   * Gets xx field.
    *
-   * @return the last name
+   * @return the xx field
    */
-  public String getLastName() {
-        return lastName;
-    }
+  public String getXxField() { return xxField; }
 
   /**
-   * Sets last name.
+   * Sets xx field.
    *
-   * @param lastName the last name
+   * @param xxField the xx field
    */
-  public void setLastName(String lastName) {
-        this.lastName = lastName;
+  public void setXxField(String xxField) {
+        this.xxField = xxField;
     }
 
-  /**
-   * Gets email.
+    /**
+   * Gets application type.
    *
-   * @return the email
+   * @return the application type
    */
-  public String getEmail() {
-        return email;
+  public String getApplicationType() { return applicationType;
+  }
+  /**
+   * Sets application type.
+   *
+   * @param applicationType the application type
+   */
+  public void setApplicationType(String applicationType) { this.applicationType = applicationType; }
+
+    /**
+     * Gets year.
+     *
+     * @return the year
+     */
+    public String getYear() {
+        return year;
+    }
+    /**
+     * Sets year.
+     *
+     * @param year the year
+     */
+    public void setYear(String year) { this.year = year; }
+
+    /**
+     * Gets status.
+     * @return the status
+     */
+    public String getStatus() { return status; }
+    /**
+     * Sets status.
+     *
+     * @param status the status
+     */
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-  /**
-   * Sets email.
-   *
-   * @param email the email
-   */
-  public void setEmail(String email) {
-        this.email = email;
-    }
-
-  /**
+    /**
    * Gets created at.
    *
    * @return the created at
@@ -221,13 +251,15 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+                ", applicationNum='" + applicationNum + '\'' +
+                ", xxField='" + xxField + '\'' +
+                ", applicationType='" + applicationType + '\'' +
+                ", year='" + year + '\'' +
+                ", status='" + status + '\'' +
                 ", createdAt=" + createdAt +
                 ", createdBy='" + createdBy + '\'' +
                 ", updatedAt=" + updatedAt +
-                ", updatedby='" + updatedBy + '\'' +
+                ", updatedBy='" + updatedBy + '\'' +
                 '}';
     }
 
