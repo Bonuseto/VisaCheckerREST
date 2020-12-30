@@ -23,7 +23,7 @@ package com.staxrt.tutorial.controller;
 import com.staxrt.tutorial.exception.ResourceNotFoundException;
 import com.staxrt.tutorial.model.User;
 import com.staxrt.tutorial.repository.UserRepository;
-import com.staxrt.tutorial.selenium.Selenium;
+import com.staxrt.tutorial.jsoupcheck.JsoupCheck;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -81,7 +81,7 @@ public class UserController {
   @PostMapping("/users")
   public User createUser(@Valid @RequestBody User user) {
    //System.out.println(user.get());
-    user.setStatus(Selenium.check(user.getApplicationNum(), user.getXxField(), user.getApplicationType(), user.getYear()));
+    user.setStatus(JsoupCheck.check(user.getApplicationNum(), user.getXxField(), user.getApplicationType(), user.getYear()));
     return userRepository.save(user);
   }
 
