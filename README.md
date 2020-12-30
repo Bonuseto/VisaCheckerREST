@@ -1,7 +1,3 @@
-[![Build Status](https://travis-ci.com/givanthak/spring-boot-rest-api-tutorial.svg?branch=master)](https://travis-ci.com/givanthak/spring-boot-rest-api-tutorial)
-[![Known Vulnerabilities](https://snyk.io/test/github/givanthak/spring-boot-rest-api-tutorial/badge.svg)](https://snyk.io/test/github/givanthak/spring-boot-rest-api-tutorial)
-
-
 
 # Sample REST CRUD API with Spring Boot, Mysql, JPA and Hibernate 
 
@@ -15,7 +11,7 @@ https://github.com/givanthak/spring-boot-rest-api-tutorial.git
 
 **2. Create Mysql database**
 ```bash
-create database user_database
+create database user_db
 ```
 
 **3. Change mysql username and password as per your installation**
